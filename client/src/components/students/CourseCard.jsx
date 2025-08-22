@@ -9,10 +9,10 @@ const CourseCard = ({course}) => {
   console.log(course)
 
   return (
-    <Link to={'/course/' + course._id} onClick={()=>screenTo(0,0,)}
+    <Link to={'/course/' + course._id} onClick={()=>scrollTo(0,0,)}
       className='border border-gray-500/30 pb-6 overflow-hidden rounded-lg'
     >
-      <img src={course.courseThumbnail} alt="" className='w-full'/>
+      <img src={course.courseThumbnail} alt="course image" className='w-full'/>
       <div className='p-3 text-left'>
         <h3 className='text-base font-semibold '>{course.courseTitle}</h3>
         <p className='text-gray-500'>{course.educator.name}</p>
@@ -24,7 +24,8 @@ const CourseCard = ({course}) => {
           </div>
           <p className='text-gray-500'>22</p>
         </div>
-        <p className='text-base font-semibold text-gray-800'>{currency}{(course.coursePrice - course.discount * course.coursePrice / 1000).toFixed}</p>
+        <p className='text-base font-semibold text-gray-800'>
+          {currency}{(course.coursePrice - course.discount * course.coursePrice / 100).toFixed(2)}</p>
       </div>
     </Link>
   )
